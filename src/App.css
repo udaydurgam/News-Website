@@ -1,0 +1,235 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #87cefa);
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body fills the viewport height */
+}
+
+/* Navbar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 144, 255, 0.8);
+  padding: 20px 40px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav ul a {
+  color: white;
+  font-size: 18px; /* Adjusted for better readability */
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+nav ul a:hover {
+  color: #ffd700;
+}
+
+/* Search Bar Styling */
+.searchbar {
+  display: flex;
+  gap: 10px;
+}
+
+.searchbar input {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.searchbar input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+}
+
+.searchbar button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchbar button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ffa500, #ffd700);
+}
+
+.head {
+  text-align: center;
+  font-weight: 600;
+  font-size: 50px;
+  margin-top: 30px; /* Added margin for spacing */
+}
+
+/* Category Buttons */
+.categoryBtn {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.categoryBtn button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categoryBtn button:hover {
+  background: rgba(30, 144, 255, 0.8);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Card Container */
+.cardcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+  width: 90%;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.card img:hover {
+  opacity: 0.8;
+}
+
+.cardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centering the content horizontally */
+  text-align: center; /* Ensures the text is centered */
+}
+
+.cardContent h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.cardContent p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.cardContent button {
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cardContent button:hover {
+  background-color: #4682b4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  .categoryBtn {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .searchbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cardcontainer {
+    grid-template-columns: 1fr;
+    padding: 100px;
+  }
+
+  .cardContent h2 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .cardContent p {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
