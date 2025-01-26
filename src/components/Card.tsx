@@ -1,26 +1,55 @@
 import React from "react";
+import "./Card.css"; // Import the CSS file
+import { CardProps } from "../App";
 
-const Card = ({ data }) => {
+// Define types for each item in the data array
+export interface NewsItem {
+  urlToImage: string | null;
+  title: string | null;
+  description: string | null;
+  url: string | null;
+}
+
+const Card: React.FC<CardProps> = ({ data }) => {
+  // Helper function to truncate long text
+  const truncateText = (text: string | null, maxLength: number): string =>
+    text && text.length > maxLength
+      ? text.slice(0, maxLength) + "..."
+      : text || "";
+
   if (!data || data.length === 0) {
-    return <p>No news articles found.</p>;
+    return (
+      <div className="no-news">
+        <p>No news articles found. Try a different search!</p>
+      </div>
+    );
   }
 
   return (
-    <div className="cardcontainer">
+    <div className="card-container">
       {data.map((curItem, index) => (
         <article className="card" key={index}>
           <img
-            src={curItem.urlToImage || "fallback-image.jpg"}
-            alt={curItem.title || "News Image"}
-            style={{ width: "100%", height: "200px", objectFit: "cover" }}
+            src={
+              curItem.urlToImage ||
+              "https://via.placeholder.com/300?text=No+Image"
+            }
+            alt={curItem.title ? `Image for: ${curItem.title}` : "News Image"}
+            loading="lazy"
           />
-          <div className="cardContent">
+          <div className="card-content">
             <h2>
-              <a href={curItem.url} target="_blank" rel="noopener noreferrer">
-                {curItem.title || "No Title Available"}
-              </a>
+              {curItem.url ? (
+                <a href={curItem.url} target="_blank" rel="noopener noreferrer">
+                  {curItem.title || "Title not available for this article"}
+                </a>
+              ) : (
+                <span>
+                  {curItem.title || "Title not available for this article"}
+                </span>
+              )}
             </h2>
-            <p>{curItem.description || "No Description Available"}</p>
+            <p>{truncateText(curItem.description, 100)}</p>
           </div>
         </article>
       ))}

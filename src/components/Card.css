@@ -1,0 +1,128 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #87cefa);
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body fills the viewport height */
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  width: 90%;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.card img:hover {
+  opacity: 0.8;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centering the content horizontally */
+  text-align: center; /* Ensures the text is centered */
+}
+
+.card-content h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.card-content button {
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-content button:hover {
+  background-color: #4682b4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    padding: 100px;
+  }
+
+  .card-content h2 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .card-content p {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* No News Available Styling */
+.no-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.no-news img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.no-news p {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}

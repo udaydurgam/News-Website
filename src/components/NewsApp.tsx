@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 
+// Define types for each item in the data array
+interface NewsItem {
+  urlToImage: string | null;
+  title: string | null;
+  description: string | null;
+  url: string | null;
+}
+
 const NewsApp = () => {
-  const [newsData, setNewsData] = useState(null);
-  const [search, setSearch] = useState("India");
+  const [newsData, setNewsData] = useState<NewsItem[] | null>(null);
+  const [search, setSearch] = useState("Trending");
 
   // Handle category button click
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     setSearch(category);
   };
 
   // Handle input change for search bar
-  const handleInput = (e) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
@@ -37,14 +45,14 @@ const NewsApp = () => {
     <div>
       <nav>
         <div>
-          <h1>Trendy News</h1>
+          <h1>InformoHub</h1>
         </div>
         <ul>
           <li>
-            <a href="#">All News</a>
+            <a onClick={() => handleCategoryClick("ESports")}>ESports</a>
           </li>
           <li>
-            <a href="#">Trending</a>
+            <a onClick={() => handleCategoryClick("Comedy")}>Comedy</a>
           </li>
         </ul>
         <div className="searchbar">
@@ -58,7 +66,7 @@ const NewsApp = () => {
         </div>
       </nav>
       <div>
-        <p className="head">Stay Updated with Trendy News</p>
+        <p className="head">Stay Updated with InformoHub</p>
       </div>
       <div className="categoryBtn">
         <button onClick={() => handleCategoryClick("sports")}>Sports</button>
@@ -75,8 +83,15 @@ const NewsApp = () => {
       </div>
 
       <div>
-        <Card data={newsData} />
+        <Card data={newsData || []} />
       </div>
+
+      <footer>
+        <div className="creatorInfo">
+          <p>InformoHub created by: Uday Durgam</p>
+          <p>Contact: udaydurgam26@gmail.com</p>
+        </div>
+      </footer>
     </div>
   );
 };

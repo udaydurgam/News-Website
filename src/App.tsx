@@ -1,5 +1,6 @@
 import NewsApp from "./components/NewsApp";
 import "./App.css";
+import { NewsItem } from "./components/Card";
 
 function App() {
   return (
@@ -9,4 +10,7 @@ function App() {
   );
 }
 
-export default App;
+export default App; // Define props for the Card component
+export interface CardProps {
+  data: NewsItem[];
+}
